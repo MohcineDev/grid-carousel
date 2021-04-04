@@ -1,0 +1,159 @@
+body {
+	background-color: #131417;
+	min-height: 100vh;
+	font-family: Arial, Helvetica, sans-serif;
+	overflow: hidden;
+}
+
+.note, .onGitHub {
+	position: absolute;
+	bottom: 10px;
+	z-index: 5;
+}
+
+a {
+	color: #ddd;
+	text-decoration: none;
+}
+
+.note {
+	background-color: crimson;
+	right: -280px;
+	animation: display-note 6s ease 1s 1;
+	border-radius: 10px;
+	padding: 0 5px;
+}
+
+.note p {
+	font-size: 14px;
+	color: #ddd;
+}
+
+@keyframes display-note {
+	20% {
+		right: 10px;
+	}
+	80% {
+		right: 10px;
+	}
+	100% {
+		right: -280px;
+	}
+}
+
+.slider-container {
+	position: relative;
+	margin: 2rem auto 0;
+	overflow: hidden;
+	width: 70vw;
+	height: max-content;
+	border-radius: 1rem;
+}
+
+.slider-container>div {
+	overflow: hidden;
+}
+
+.slider {
+	display: grid;
+	grid-template-columns: repeat(6, 100%);
+	transform: translateX(-70vw);
+}
+
+.img img {
+	box-sizing: border-box;
+	padding: 0 2px;
+	max-width: 100%;
+}
+
+.btns-container {
+	position: absolute;
+	z-index: 10;
+	width: 70vw;
+	height: 60px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.btn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	padding: 1.2rem;
+	border-radius: 5px;
+	background: rgb(25, 25, 25);
+	cursor: pointer;
+	transition: .3s;
+	opacity: 0.5;
+}
+
+.btn:hover {
+	opacity: 1;
+}
+
+#prev, #next {
+	border: 2px solid #ddd;
+	font-size: 20px;
+}
+
+#prev {
+	left: 5%;
+}
+
+#next {
+	right: 5%;
+}
+
+#prev::after, #next::after {
+	content: "";
+	border: 15px solid;
+	box-sizing: border-box;
+	border-color: white transparent transparent transparent;
+	z-index: 10;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	top: 4px;
+}
+
+#prev::after {
+	transform: rotate(90deg);
+	left: -5px;
+}
+
+#next::after {
+	transform: rotate(-90deg);
+	right: -5px;
+}
+
+@media only screen and (max-width: 992px) {
+	.slider-container {
+		width: 90vw;
+	}
+	.slider {
+		transform: translateX(-90vw);
+	}
+	.btns-container {
+		width: 90vw;
+	}
+}
+
+.onGitHub {
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.onGitHub svg {
+	width: 25px;
+	vertical-align: middle;
+}
+
+.move {
+	animation: moving 5s linear infinite;
+}
+
+@keyframes moving {
+	50% {
+		left: 53%;
+	}
+}
