@@ -5,40 +5,9 @@ body {
 	overflow: hidden;
 }
 
-.note, .onGitHub {
-	position: absolute;
-	bottom: 10px;
-	z-index: 5;
-}
-
 a {
 	color: #ddd;
 	text-decoration: none;
-}
-
-.note {
-	background-color: crimson;
-	right: -280px;
-	animation: display-note 6s ease 1s 1;
-	border-radius: 10px;
-	padding: 0 5px;
-}
-
-.note p {
-	font-size: 14px;
-	color: #ddd;
-}
-
-@keyframes display-note {
-	20% {
-		right: 10px;
-	}
-	80% {
-		right: 10px;
-	}
-	100% {
-		right: -280px;
-	}
 }
 
 .slider-container {
@@ -126,6 +95,27 @@ a {
 	right: -5px;
 }
 
+.nav-btns {
+	position: absolute;
+	z-index: 15;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 20px;
+}
+
+.nav-btns div {
+	width: 20px;
+	border-radius:4px;
+	border: 2px solid  rgba(255, 255, 255, 0.4);
+	margin: 0 5px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.nav-btns div.active {
+	border-color:rgba(52, 202, 249, 0.7);
+}
+
 @media only screen and (max-width: 992px) {
 	.slider-container {
 		width: 90vw;
@@ -135,25 +125,5 @@ a {
 	}
 	.btns-container {
 		width: 90vw;
-	}
-}
-
-.onGitHub {
-	left: 50%;
-	transform: translateX(-50%);
-}
-
-.onGitHub svg {
-	width: 25px;
-	vertical-align: middle;
-}
-
-.move {
-	animation: moving 5s linear infinite;
-}
-
-@keyframes moving {
-	50% {
-		left: 53%;
 	}
 }
